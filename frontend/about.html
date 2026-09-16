@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About — Road Hazard Detection</title>
+  <meta name="description" content="Learn about the Road Hazard Detection System, its purpose, and the technology behind it.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <style>
+    /* Specific overrides for About page layout to keep styles.css clean */
+    
+    /* Problem -> Solution Flow */
+    .problem-solution-connector {
+      width: 2px;
+      height: 32px;
+      background-color: var(--border-color);
+      margin: 0 auto;
+      position: relative;
+    }
+    .problem-solution-connector::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: -4px;
+      width: 8px;
+      height: 8px;
+      border-right: 2px solid var(--border-color);
+      border-bottom: 2px solid var(--border-color);
+      transform: rotate(45deg);
+    }
+    .solution-card {
+      background-color: #fff;
+      padding: var(--space-lg);
+      border: 1px solid var(--border-color);
+      box-shadow: var(--shadow-xl);
+    }
+
+    /* Interactive Pipeline Flow */
+    .flow-card {
+      transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease, border-color 0.3s ease;
+      cursor: default;
+    }
+    .flow-card:hover {
+      transform: translateY(-4px) scale(1.01);
+      box-shadow: 6px 6px 0px var(--accent-orange);
+      border-color: var(--accent-orange);
+    }
+    .flow-arrow-container {
+      display: flex;
+      justify-content: center;
+      padding: 12px 0;
+      color: var(--text-muted);
+      transition: color 0.3s ease;
+    }
+    /* Subtle arrow reaction when hovering the card above it */
+    .flow-card:hover + .flow-arrow-container {
+      color: var(--accent-orange);
+    }
+
+    /* Creators Section */
+    .creators-grid {
+      display: grid; 
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); 
+      gap: var(--space-lg);
+    }
+    .creator-card {
+      background-color: var(--bg-color);
+      border: 1px solid var(--border-color);
+      padding: var(--space-md) var(--space-lg);
+      border-radius: var(--radius-sm);
+      text-align: center;
+      transition: background-color 0.2s ease, transform 0.2s ease;
+      box-shadow: var(--shadow-sm);
+    }
+    .creator-card:hover {
+      background-color: #fff;
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-md);
+    }
+    .creator-name {
+      font-size: 18px;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+    .creator-role {
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--text-muted);
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="app-header">
+    <div class="container header-container">
+      <a href="index.html" class="logo-group" style="text-decoration:none;color:inherit;">
+        <div class="warning-icon" aria-hidden="true">
+          <span>!</span>
+        </div>
+        <div class="title-group">
+          <span class="app-title">Road Hazard Detection</span>
+          <span class="model-badge">YOLO-BASED</span>
+        </div>
+      </a>
+      <nav class="main-nav" aria-label="Main Navigation">
+        <a href="detect.html" class="nav-link">Detect</a>
+        <a href="map.html" class="nav-link">Map</a>
+        <a href="index.html" class="nav-link">Authority</a>
+        <a href="about.html" class="nav-link active">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="main-content">
+    <div class="container">
+      
+      <!-- Intro / Hero -->
+      <section class="section-header" style="margin-bottom: var(--space-xl);">
+        <div class="editorial-column">
+          <div class="wayfinding">
+            <span class="badge-dark">SYSTEM OVERVIEW</span>
+            <span class="section-label">ABOUT THE PROJECT</span>
+          </div>
+          <h1 class="main-heading">
+            Safer roads through<br>
+            <span class="highlight-underline">computer vision</span>.
+          </h1>
+          <p class="editorial-text">
+            The Road Hazard Detection System leverages YOLO-based object detection to automatically identify and map road hazards from images, enabling faster civic response and safer routing.
+          </p>
+        </div>
+        <div class="workspace-column" style="justify-content: center; align-items: center; padding: 2rem;">
+            <div class="warning-icon" aria-hidden="true" style="width: 120px; height: 120px; border-width: 4px;">
+              <span style="font-size: 64px;">!</span>
+            </div>
+        </div>
+      </section>
+
+      <!-- The Problem -> Solution Flow -->
+      <!-- The Problem -->
+      <section style="margin-bottom: 0;">
+         <div class="workspace-card" style="background-color: transparent; border: 2px dashed var(--border-color); box-shadow: none;">
+           <div class="wayfinding">
+             <span class="indicator-dot orange pulse-indicator"></span>
+             <span class="section-label">THE PROBLEM</span>
+           </div>
+           <h2 class="main-heading" style="font-size: 32px; margin-bottom: var(--space-md);">Manual reporting is slow.</h2>
+           <p class="editorial-text" style="max-width: none; margin-bottom: 0;">
+             Road conditions deteriorate rapidly, but municipal authorities often rely on slow, manual reporting processes or periodic surveys. This lag in reporting leaves hazards like potholes and open construction barriers unaddressed, leading to vehicle damage and safety risks.
+           </p>
+         </div>
+      </section>
+
+      <div class="problem-solution-connector"></div>
+
+      <!-- What we detect (The Solution) -->
+      <section class="solution-card hazards-spec" style="margin-bottom: var(--space-xl);">
+        <div class="spec-header-row" style="margin-bottom: var(--space-lg);">
+          <div class="spec-tag">
+            <span class="badge-dark" style="background-color: var(--accent-orange);">OUR SOLUTION</span>
+            <h2 class="spec-heading">AUTOMATED DETECTION</h2>
+          </div>
+        </div>
+        
+        <div class="hazards-grid">
+          <!-- Cat 1 -->
+          <div class="hazard-category">
+            <div class="hazard-top">
+              <div class="hazard-title-row">
+                <span class="cat-id">CAT-01</span>
+                <span class="material-symbols-outlined hazard-icon">landslide</span>
+              </div>
+              <h3 class="hazard-name">POTHOLES</h3>
+              <p class="hazard-desc">Holes and cavities in the road surface</p>
+            </div>
+          </div>
+          <!-- Cat 2 -->
+          <div class="hazard-category">
+            <div class="hazard-top">
+              <div class="hazard-title-row">
+                <span class="cat-id">CAT-02</span>
+                <span class="material-symbols-outlined hazard-icon">broken_image</span>
+              </div>
+              <h3 class="hazard-name">ROAD CRACKS</h3>
+              <p class="hazard-desc">Visible cracks and damaged road surfaces</p>
+            </div>
+          </div>
+          <!-- Cat 3 -->
+          <div class="hazard-category">
+            <div class="hazard-top">
+              <div class="hazard-title-row">
+                <span class="cat-id">CAT-03</span>
+                <span class="material-symbols-outlined hazard-icon">water_drop</span>
+              </div>
+              <h3 class="hazard-name">WATERLOGGING</h3>
+              <p class="hazard-desc">Standing water and flooded road areas</p>
+            </div>
+          </div>
+          <!-- Cat 4 -->
+          <div class="hazard-category">
+            <div class="hazard-top">
+              <div class="hazard-title-row">
+                <span class="cat-id">CAT-04</span>
+                <span class="material-symbols-outlined hazard-icon">traffic</span>
+              </div>
+              <h3 class="hazard-name">CONSTRUCTION BARRIERS</h3>
+              <p class="hazard-desc">Cones, drums and work-zone barriers</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Pipeline / How it works -->
+      <section style="margin-bottom: var(--space-xl);">
+        <div class="spec-header-row" style="margin-bottom: var(--space-md);">
+          <div class="spec-tag">
+            <span class="badge-dark">ARCHITECTURE</span>
+            <h2 class="spec-heading">HOW IT WORKS</h2>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column;">
+          
+          <div class="spec-card flow-card" style="margin-bottom: 0;">
+            <div class="spec-header">
+              <span class="spec-label">01. CAPTURE</span>
+            </div>
+            <p class="spec-value" style="font-size: 16px; text-transform: none; font-weight: 500; letter-spacing: normal;">Public users upload road images to the system.</p>
+          </div>
+          
+          <div class="flow-arrow-container">
+             <span class="material-symbols-outlined flow-arrow">arrow_downward</span>
+          </div>
+
+          <div class="spec-card flow-card" style="margin-bottom: 0;">
+            <div class="spec-header">
+              <span class="spec-label">02. DETECTION</span>
+            </div>
+            <p class="spec-value" style="font-size: 16px; text-transform: none; font-weight: 500; letter-spacing: normal;">A custom YOLO model analyzes the image to classify hazards and assign confidence scores.</p>
+          </div>
+
+          <div class="flow-arrow-container">
+             <span class="material-symbols-outlined flow-arrow">arrow_downward</span>
+          </div>
+
+          <div class="spec-card flow-card" style="margin-bottom: 0;">
+            <div class="spec-header">
+              <span class="spec-label">03. STORAGE</span>
+            </div>
+            <p class="spec-value" style="font-size: 16px; text-transform: none; font-weight: 500; letter-spacing: normal;">Detected hazards, along with geolocation data, are saved to a PostgreSQL/PostGIS database.</p>
+          </div>
+          
+          <div class="flow-arrow-container">
+             <span class="material-symbols-outlined flow-arrow">arrow_downward</span>
+          </div>
+
+          <div class="spec-card flow-card" style="margin-bottom: 0;">
+            <div class="spec-header">
+              <span class="spec-label">04. ACTION</span>
+            </div>
+            <p class="spec-value" style="font-size: 16px; text-transform: none; font-weight: 500; letter-spacing: normal;">Hazards are visualized on a map, reported to municipal authorities, and can be used for safer route recommendations.</p>
+          </div>
+          
+        </div>
+      </section>
+
+      <!-- Technology Stack -->
+      <section style="margin-bottom: var(--space-xl);">
+         <div class="workspace-card">
+           <div class="wayfinding">
+             <span class="indicator-dot yellow"></span>
+             <span class="section-label">TECHNOLOGY STACK</span>
+           </div>
+           <h2 class="main-heading" style="font-size: 32px; margin-bottom: var(--space-md);">Built for performance.</h2>
+           
+           <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: var(--space-lg); margin-top: var(--space-lg);">
+             <div>
+               <h3 style="font-size: 14px; font-weight: 700; margin-bottom: 8px;">COMPUTER VISION</h3>
+               <p class="editorial-text" style="font-size: 14px; margin-bottom: 0;">YOLO (You Only Look Once) custom-trained model for high-speed, high-accuracy object detection.</p>
+             </div>
+             <div>
+               <h3 style="font-size: 14px; font-weight: 700; margin-bottom: 8px;">BACKEND & DATABASE</h3>
+               <p class="editorial-text" style="font-size: 14px; margin-bottom: 0;">PostgreSQL with PostGIS extensions for robust spatial data storage and geographic querying.</p>
+             </div>
+             <div>
+               <h3 style="font-size: 14px; font-weight: 700; margin-bottom: 8px;">FRONTEND</h3>
+               <p class="editorial-text" style="font-size: 14px; margin-bottom: 0;">Vanilla HTML, CSS, and JavaScript. Zero bloat, maximum performance.</p>
+             </div>
+           </div>
+         </div>
+      </section>
+
+      <!-- Creators -->
+      <section style="margin-bottom: var(--space-xl);">
+        <div class="spec-header-row" style="margin-bottom: var(--space-md);">
+          <div class="spec-tag">
+            <span class="badge-dark">THE CREATORS</span>
+            <h2 class="spec-heading">BUILT AS A COMPUTER VISION PROJECT.</h2>
+          </div>
+        </div>
+        
+        <div class="creators-grid">
+          <div class="creator-card">
+            <h3 class="creator-name">Shekhar2503</h3>
+            <span class="creator-role">Contributor</span>
+          </div>
+          <div class="creator-card">
+            <h3 class="creator-name">Rehaan Sheikh</h3>
+            <span class="creator-role">Contributor</span>
+          </div>
+          <div class="creator-card">
+            <h3 class="creator-name">Nida Kamil</h3>
+            <span class="creator-role">Contributor</span>
+          </div>
+        </div>
+
+        <div style="margin-top: var(--space-xl); display: flex; justify-content: center;">
+          <a href="https://github.com/shekhar2503/Road_Hazard_Project" target="_blank" rel="noopener noreferrer" class="btn-secondary">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+              <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.477 2 12c0 4.42 2.865 8.166 6.839 9.489.5.092.682-.217.682-.482 0-.237-.008-.866-.013-1.7-2.782.603-3.369-1.34-3.369-1.34-.454-1.156-1.11-1.462-1.11-1.462-.908-.62.069-.608.069-.608 1.003.07 1.531 1.03 1.531 1.03.892 1.529 2.341 1.087 2.91.831.092-.646.35-1.086.636-1.336-2.22-.253-4.555-1.11-4.555-4.943 0-1.091.39-1.984 1.029-2.683-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.578 9.578 0 0112 6.836c.85.004 1.705.114 2.504.336 1.909-1.294 2.747-1.025 2.747-1.025.546 1.377.203 2.394.1 2.647.64.699 1.028 1.592 1.028 2.683 0 3.842-2.339 4.687-4.566 4.935.359.309.678.919.678 1.852 0 1.336-.012 2.415-.012 2.743 0 .267.18.578.688.48C19.138 20.161 22 16.416 22 12c0-5.523-4.477-10-10-10z"></path>
+            </svg>
+            <span>VIEW REPOSITORY</span>
+          </a>
+        </div>
+      </section>
+      
+      <!-- Purpose / Outcome -->
+      <section style="margin-bottom: var(--space-xl); text-align: center; padding: var(--space-xl) 0; border-top: 1px solid var(--border-color);">
+        <h2 class="main-heading" style="font-size: 32px;">Bridging the gap between<br>detection and dispatch.</h2>
+        <a href="detect.html" class="btn-primary" style="margin-top: var(--space-md);">
+          <span>TRY THE DETECTOR →</span>
+        </a>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="app-footer">
+    <div class="container footer-container">
+      <span class="footer-text">ROAD HAZARD DETECTION SYSTEM <span class="dot">&bull;</span> COMPUTER VISION PROJECT</span>
+    </div>
+  </footer>
+
+</body>
+</html>
